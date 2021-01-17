@@ -23,7 +23,7 @@ class Player {
     }
 
     discardTile(id) {
-        this.tiles = this.tiles.filter(function(id){
+        this.tiles = this.tiles.filter(function(tile){
             return tile.id != id;
         });
     }

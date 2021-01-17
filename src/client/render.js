@@ -22,13 +22,12 @@ function render() {
 
 
 
-function renderPlayerTiles(me, tile) {
-    const { x, y } = tile;
+//function renderPlayerTiles(me, tile) {
+//    const { x, y } = tile;
+//
+  //  context.drawImage(
+    //    getAsset()
+//    )
+//}
 
-    forEach( tile in me.tiles) {
-        
-    }
-    context.drawImage(
-        getAsset()
-    )
-}
+//just to get a running build
