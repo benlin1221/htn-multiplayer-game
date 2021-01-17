@@ -1,15 +1,13 @@
 const Constants = require('../shared/constants');
 const Player = require('./player');
 
+// new Game(); isnt detected as a constructor for some reason?
+// maybe it's because it was never used in this file
 class Game {
   constructor() {
     this.sockets = {};
     this.players = {};
-    this.bullets = [];
-    this.lastUpdateTime = Date.now();
-    this.shouldSendUpdate = false;
-    setInterval(this.update.bind(this), 1000 / 60);
-    // the refresh interval, change this
+    this.tiles = [];
   }
 
   addPlayer(socket, username) {
@@ -38,6 +36,7 @@ class Game {
     // call update
     // ???
   }
+  
 
   // what is controlling the draw calls and game updates
 
@@ -85,21 +84,14 @@ class Game {
     }
   }
 
-  /* I don't think we need this
+  
   createUpdate(player) {
-    const nearbyPlayers = Object.values(this.players).filter(
-      p => p !== player && p.distanceTo(player) <= Constants.MAP_SIZE / 2,
-    );
-    const nearbyBullets = this.bullets.filter(
-      b => b.distanceTo(player) <= Constants.MAP_SIZE / 2,
-    );
 
     return {
-      t: Date.now(),
       me: player.serializeForUpdate(),
-      others: nearbyPlayers.map(p => p.serializeForUpdate()),
-      bullets: nearbyBullets.map(b => b.serializeForUpdate()),
+      others: this.players.filter(x => x.id != player.id).map(p => p.serializeForUpdate()),
     };
   }
-  */
 }
+
+module.exports = Game;

@@ -4,7 +4,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require('../../webpack.dev.js');
 const socketio = require('socket.io');
 const Constants = require('../shared/constants');
-const Game = require('./game');
+const Game = require('./game.js');
 
 const app = express();
 app.use(express.static('public'));

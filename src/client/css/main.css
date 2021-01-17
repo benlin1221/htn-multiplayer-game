@@ -6,7 +6,7 @@ html, body {
     overflow: hidden;
     overscroll-behavior: none;
     color: black;
-    background-image: url("../public/assets/table.jpg");
+    background-image: url("/public/assets/table.jpg");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
