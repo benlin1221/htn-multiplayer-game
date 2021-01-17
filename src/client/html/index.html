@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mahjong.io</title>
+    <link type="text/css" rel="stylesheet" href="main.css"> <!-- style.css in repl.it -->
+</head>
+<body>
+    <canvas id="game-canvas" class="hidden"></canvas>
+    <script async src="/game.bundle.js"></script>
+    <script>
+        function myCanvas() {
+            var c = document.getElementById("game-canvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "5EAC56";
+            ctx.fillRect(0, 0, 2000, 2000);
+        }
+    </script>
+    <div id="play-menu" class="hidden"> <!-- put class hidden back -->
+        <h1> Mahjong.io </h1>
+        <p> Play with friends :) <br/>
+        Click to interact with tiles. </p> <br/>
+        <input type="text" id="username-input" placeholder="Username" />
+        <button id="play-button">PLAY</button>
+    </div>
+    <div id="victory-screen" class="hidden">
+        <h1>[person] won the game!</h1>
+        <p> Play again? </p> <br/>
+        <button id="replay-button">PLAY AGAIN</button>
+    </div>
+    <div class="dice">
+        <!-- need dice pngs -->
+        <img class="die" src="..dice/6.png">
+        <img class="die" src="..dice/6.png">
+    </div>
+    <div class="container">
+        <button id="roll" onClick="rollTheDice()">
+            Roll the dice!
+        </button>
+    </div>
+    <script>
+        function rollTheDice() {
+            setTimeout(function () { 
+            var randomNumber1 = Math.floor(Math.random() * 6) + 1; 
+            var randomNumber2 = Math.floor(Math.random() * 6) + 1; 
+  
+            document.querySelector(".img1").setAttribute("src", 
+                "../dice/" + randomNumber1 + ".png"); 
+  
+            document.querySelector(".img2").setAttribute("src", 
+                "../dice/" + randomNumber2 + ".png"); 
+            }, 2500); 
+        }
+    </script>
+</body>
+</html>
